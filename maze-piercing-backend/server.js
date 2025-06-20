@@ -3,13 +3,12 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = 5000;
+require('dotenv').config(); // at the top
 
-// Connect to MongoDB Atlas
-mongoose.connect('mongodb+srv://mazepiercing:mazepiercing@mazepiercingbooking.945sb8n.mongodb.net/?retryWrites=true&w=majority&appName=mazepiercingbooking', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log('Connected to MongoDB Atlas'))
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('Connected to MongoDB Atlas'))
   .catch((err) => console.error('MongoDB connection error:', err));
+
 
 // Middleware
 app.use(cors());
