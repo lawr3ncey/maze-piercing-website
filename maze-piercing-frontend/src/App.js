@@ -1,13 +1,27 @@
 import React from 'react';
-import BookingForm from './BookingForm';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AdminDashboard from './AdminDashboard';
+import AdminLayout from './AdminLayout';
 
 function App() {
   return (
-    <div>
-      <h1>Maze Piercing</h1>
-      <p>Welcome to Maze Piercing!</p>
-      <BookingForm /> {/* Here’s where your form goes */}
-    </div>
+    <Router>
+      <Routes>
+        {/* Admin Layout wrapper */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          {/* You can add more admin sub-routes here */}
+        </Route>
+
+        {/* Public landing page */}
+        <Route path="/" element={
+          <div>
+            <h1>Maze Piercing</h1>
+            <p>Welcome to Maze Piercing!</p>
+          </div>
+        } />
+      </Routes>
+    </Router>
   );
 }
 

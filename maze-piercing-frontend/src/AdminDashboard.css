@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Rubik:400,500&display=swap');
+
+.admin-dashboard {
+  min-height: 100vh;
+
+  background-size: cover;
+  font-family: 'Open Sans', 'Rubik', Arial, sans-serif;
+  color: #333;
+  padding: 40px 0;
+}
+
+.admin-dashboard h2 {
+  color: #FF8B0F;
+  font-family: 'Rubik', 'Open Sans', Arial, sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.admin-dashboard table {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  margin: 0 auto;
+  width: 90%;
+  max-width: 950px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+.admin-dashboard th, .admin-dashboard td {
+  padding: 18px 16px;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.admin-dashboard th {
+  background: #FFB30F;
+  color: #fff;
+  font-family: 'Rubik', 'Open Sans', Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.admin-dashboard tr:nth-child(even) {
+  background: #FFEEBA;
+}
+
+.admin-dashboard tr:nth-child(odd) {
+
+}
+
+.admin-dashboard tr:hover {
+  background: #FFD38B;
+  transition: background 0.2s;
+}
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f6f7;
+}
+
+.sidebar {
+  width: 260px;
+  background: #2471A3;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 32px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  background: #fff;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.profile-info h3 {
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2rem;
+}
+
+.profile-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #FFB30F;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar nav li {
+  padding: 16px 0 16px 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar nav li.active,
+.sidebar nav li:hover {
+  background: #FF8B0F;
+  color: #fff;
+} 

@@ -40,6 +40,17 @@ app.post('/appointments', async (req, res) => {
   }
 });
 
+// GET all bookings (Admin View)
+app.get('/appointments', async (req, res) => {
+  try {
+    const bookings = await Booking.find(); // Fetch all bookings from MongoDB
+    res.status(200).json(bookings);
+  } catch (error) {
+    console.error('Error fetching bookings:', error);
+    res.status(500).json({ message: 'Failed to fetch bookings' });
+  }
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
