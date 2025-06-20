@@ -1,27 +1,44 @@
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
 const app = express();
 const PORT = 5000;
 
-app.use(cors()); // This allows requests from other origins (like React)
+// Connect to MongoDB Atlas
+mongoose.connect('mongodb+srv://mazepiercing:mazepiercing@mazepiercingbooking.945sb8n.mongodb.net/?retryWrites=true&w=majority&appName=mazepiercingbooking', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => console.log('Connected to MongoDB Atlas'))
+  .catch((err) => console.error('MongoDB connection error:', err));
 
-// Middleware to parse JSON
+// Middleware
+app.use(cors());
 app.use(express.json());
 
-// Test route
+// Mongoose Booking Model
+const Booking = mongoose.model('Booking', new mongoose.Schema({
+  name: String,
+  email: String,
+  piercingType: String,
+  preferredDate: String,
+  message: String,
+}));
+
+// Routes
 app.get('/', (req, res) => {
   res.send('Piercing Booking API is running!');
 });
 
-// Store bookings in memory (temporary)
-let bookings = [];
-
-// POST endpoint to receive bookings
-app.post('/appointments', (req, res) => {
-  const booking = req.body;
-  console.log('Received booking:', booking);
-  bookings.push(booking);
-  res.status(201).json({ message: 'Booking received!', booking });
+app.post('/appointments', async (req, res) => {
+  try {
+    const booking = new Booking(req.body);
+    await booking.save();
+    console.log('Saved booking:', booking);
+    res.status(201).json({ message: 'Booking saved to MongoDB!', booking });
+  } catch (error) {
+    console.error('Error saving booking:', error);
+    res.status(500).json({ message: 'Failed to save booking.' });
+  }
 });
 
 // Start server
