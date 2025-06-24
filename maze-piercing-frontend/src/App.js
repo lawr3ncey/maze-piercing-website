@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdminDashboard from './AdminDashboard';
 import AdminLayout from './AdminLayout';
+import BookingForm from './BookingForm';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <div>
             <h1>Maze Piercing</h1>
             <p>Welcome to Maze Piercing!</p>
+            <BookingForm /> {/* Here’s where your form goes */}
           </div>
         } />
       </Routes>
