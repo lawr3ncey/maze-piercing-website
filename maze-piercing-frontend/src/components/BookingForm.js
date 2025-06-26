@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { bookAppointment } from './api';
+import { bookAppointment } from '../api';
 
 function BookingForm() {
   const [formData, setFormData] = useState({
