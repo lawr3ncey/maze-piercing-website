@@ -7,27 +7,15 @@
 .gallery h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #6f4e7c; /* Adjust based on your branding */
+  color: #6f4e7c;
 }
-
-.gallery img {
-  object-fit: contain;
-  height: 100%;
-  width: auto;
-  max-width: 100%;
-  aspect-ratio: 0.88; /* roughly 7:8 ratio for tall images */
-  border-radius: 0;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
 
 .gallery-tabs {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .gallery-tabs button {
@@ -40,6 +28,24 @@
   transition: background-color 0.3s ease;
 }
 
+.gallery-tabs button.active,
+
 .gallery-tabs button:hover {
   background-color: #555;
+}
+
+.mySwiper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  height: 600px;
+  overflow: hidden;
+}
+
+.mySwiper img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
 }

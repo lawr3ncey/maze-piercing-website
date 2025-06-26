@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import '../styles/Gallery.css'; // Your custom styles
 
 
 const galleryData = {
@@ -54,7 +55,7 @@ const Gallery = () => {
 
         {galleryData[category].map((img, index) => (
           <SwiperSlide key={index}>
-            <img src={img.src} alt={img.alt} style={{ width: '100%', height: 'auto' }} />
+            <img src={img.src} alt={img.alt} style={{ width: '600px', height: 'auto' }} />
             <p style={{ textAlign: 'center' }}>{img.alt}</p>
           </SwiperSlide>
         ))}

@@ -6,7 +6,6 @@ import BookingForm from '../components/BookingForm'; // ⬅️ Go up one level
 import '../styles/App.css'; // ⬅️ Go up one level
 import Gallery from '../components/Gallery'; // ⬅️ Go up one level
 
-
 function App() {
   return (
     <Router>
