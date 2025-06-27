@@ -1,65 +1,220 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, EffectCoverflow } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
-import '../styles/Gallery.css'; // Your custom styles
+import 'swiper/css/effect-coverflow';
+import '../styles/Gallery.css';
 
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Typography from '@mui/material/Typography';
+import Backdrop from '@mui/material/Backdrop';
+import { useSpring, animated } from '@react-spring/web';
 
-const galleryData = {
-  ear: [
-    { src: '/images/main.jpg', alt: 'Helix Piercing' },
-    { src: '/images/main.jpg', alt: 'Lobe Piercing' },
-  ],
-  facial: [
-    { src: '/images/main transparent.png', alt: 'Nose Piercing' },
-    { src: '/images/main transparent.png', alt: 'Eyebrow Piercing' },
-  ],
-  oral: [
-    { src: '/images/main white bg.png', alt: 'Lip Piercing' },
-    { src: '/images/main white bg.png', alt: 'Tongue Piercing' },
-  ],
-  other: [
-    { src: '/images/main.jpg', alt: 'Navel Piercing' },
-    { src: '/images/main.jpg', alt: 'Industrial Piercing' },
-  ],
+const Fade = React.forwardRef(function Fade(props, ref) {
+  const {
+    children,
+    in: open,
+    onClick,
+    onEnter,
+    onExited,
+    ownerState,
+    ...other
+  } = props;
+
+  const style = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: open ? 1 : 0 },
+    onStart: () => {
+      if (open && onEnter) onEnter(null, true);
+    },
+    onRest: () => {
+      if (!open && onExited) onExited(null, true);
+    },
+  });
+
+  return (
+    <animated.div ref={ref} style={style} {...other}>
+      {React.cloneElement(children, { onClick })}
+    </animated.div>
+  );
+});
+
+const modalStyle = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '90%',
+  maxWidth: '500px',
+  bgcolor: 'background.paper',
+  boxShadow: 24,
+  borderRadius: '8px',
+  p: 4,
+  outline: 'none',
 };
 
+  const Gallery = () => {
+    const [activeTab, setActiveTab] = useState('ear');
+    const [open, setOpen] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
 
+    const handleOpenModal = (image) => {
+      setSelectedImage(image);
+      setOpen(true);
+    };
 
+    const handleCloseModal = () => {
+      setOpen(false);
+      setSelectedImage(null);
+    };
 
-const Gallery = () => {
-  const [category, setCategory] = useState('ear');
+  const galleries = {
+    ear: [
+      {
+        src: '/images/dodong.jpg',
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
+      {
+        src: '/images/ear-piercing.jpg',
+        alt: 'Ear Piercing',
+        title: 'Helix Style',
+        description: 'Inframe: Maze Deetz.',
+      },
+      {
+        src: '/images/main.jpg',
+        alt: 'Ear Piercing',
+        title: 'Helix Style',
+        description: 'Inframe: Maze Deetz.',
+      },
+    ],
+    facial: [
+      {
+        src: '/images/main.jpg',
+        alt: 'Nose Piercing',
+        title: 'Nose Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
+      {
+        src: '/images/main.jpg',
+        alt: 'Eyebrow Piercing',
+        title: 'Eyebrow Piercing',
+        description: 'Inframe: Maze Deetz.',
+      },
+    ],
+    oral: [
+      {
+        src: '/images/main transparent.png',
+        alt: 'Tongue Piercing',
+        title: 'Tongue Piercing',
+        description: 'Bold and expressive.',
+      },
+      {
+        src: '/images/main transparent.png',
+        alt: 'Lip Piercing',
+        title: 'Lip Piercing',
+        description: 'Various jewelry options.',
+      },
+    ],
+    others: [
+      {
+        src: '/images/main transparent.png',
+        alt: 'Septum Piercing',
+        title: 'Septum Piercing',
+        description: 'Classic bold style.',
+      },
+      {
+        src: '/images/main transparent.png',
+        alt: 'Ear Piercing',
+        title: 'Multi Piercings',
+        description: 'Stylish and versatile.',
+      },
+    ],
+  };
 
   return (
     <section className="gallery">
-      <h2>{category.charAt(0).toUpperCase() + category.slice(1)} Piercings</h2>
-      
-      {/* CATEGORY TABS */}
-      <div className="gallery-tabs">
-        <button onClick={() => setCategory('ear')}>Ear</button>
-        <button onClick={() => setCategory('facial')}>Facial</button>
-        <button onClick={() => setCategory('oral')}>Oral</button>
-        <button onClick={() => setCategory('other')}>Others</button>
-      </div>  
-      
-      {/* SWIPER CAROUSEL */}
-      <Swiper
-        navigation={true}
-        modules={[Navigation]}
-        slidesPerView={1}
-        spaceBetween={20}
-        loop={true}
-        className="mySwiper"
-      >
+      <h2>Collection</h2>
 
-        {galleryData[category].map((img, index) => (
-          <SwiperSlide key={index}>
-            <img src={img.src} alt={img.alt} style={{ width: '600px', height: 'auto' }} />
-            <p style={{ textAlign: 'center' }}>{img.alt}</p>
+      <div className="gallery-tabs">
+        {['ear', 'facial', 'oral', 'others'].map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={activeTab === tab ? 'active' : ''}
+          >
+            {tab.charAt(0).toUpperCase() + tab.slice(1)} Piercing
+          </button>
+        ))}
+      </div>
+
+      <Swiper
+        effect="coverflow"
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView="auto"
+        loop={true}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2.5,
+          slideShadows: false,
+        }}
+        navigation
+        modules={[Navigation, EffectCoverflow]}
+        className="gallery-swiper"
+      >
+        {galleries[activeTab].map((slide, index) => (
+          <SwiperSlide
+            key={index}
+            className="gallery-slide"
+            onClick={() => handleOpenModal(slide)}
+          >
+            <img src={slide.src} alt={slide.alt} />
+
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <Modal
+        open={open}
+        onClose={handleCloseModal}
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            TransitionComponent: Fade,
+          },
+        }}
+      >
+        <Fade in={open}>
+          <Box sx={modalStyle}>
+            {selectedImage && (
+              <>
+                <img
+                    src={selectedImage.src}
+                    alt={selectedImage.alt}
+                    style={{
+                      width: '100%',
+                      maxWidth: '100%',
+                      maxHeight: '75vh', // limits height to 70% of viewport
+                      height: 'auto',
+                      borderRadius: '8px',
+                      marginBottom: '1rem',
+                      objectFit: 'contain'
+                    }}
+                  />
+                <Typography variant="h6">{selectedImage.title}</Typography>
+                <Typography sx={{ mt: 1 }}>{selectedImage.description}</Typography>
+              </>
+            )}
+          </Box>
+        </Fade>
+      </Modal>
     </section>
   );
 };
