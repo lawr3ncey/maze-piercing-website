@@ -191,7 +191,7 @@ const gothicStyle = {
         description: 'Bold and expressive.',
       },
     ],
-    others: [
+    other: [
       {
         src: '/images/dodong.jpg',
         alt: 'Septum Piercing',
@@ -236,7 +236,7 @@ const gothicStyle = {
       <h2>Collection</h2>
 
       <div className="gallery-tabs">
-        {['ear', 'facial', 'oral', 'others'].map((tab) => (
+        {['ear', 'facial', 'oral', 'other'].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
