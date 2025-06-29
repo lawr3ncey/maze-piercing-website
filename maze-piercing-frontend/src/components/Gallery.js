@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, EffectCoverflow } from 'swiper/modules';
 import 'swiper/css';
@@ -41,24 +41,27 @@ const Fade = React.forwardRef(function Fade(props, ref) {
   );
 });
 
-const modalStyle = {
+const gothicStyle = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '90%',
-  maxWidth: '500px',
-  bgcolor: 'background.paper',
-  boxShadow: 24,
-  borderRadius: '8px',
+  maxWidth: 500,
+  bgcolor: '#111',
+  color: '#eee',
+  border: '2px solid #6f4e7c',
+  borderRadius: '12px',
+  boxShadow: '0 0 25px #6f4e7c',
   p: 4,
-  outline: 'none',
+  fontFamily: '"Cinzel", serif',
 };
 
   const Gallery = () => {
     const [activeTab, setActiveTab] = useState('ear');
     const [open, setOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
+    const swiperRef = useRef(null); // 🧠 This stores Swiper instance
 
     const handleOpenModal = (image) => {
       setSelectedImage(image);
@@ -72,6 +75,30 @@ const modalStyle = {
 
   const galleries = {
     ear: [
+      {
+        src: '/images/dodong.jpg',
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
+      {
+        src: '/images/dodong.jpg',
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
+      {
+        src: '/images/dodong.jpg',
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
+      {
+        src: '/images/dodong.jpg',
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
       {
         src: '/images/dodong.jpg',
         alt: 'Ear Piercing',
@@ -93,13 +120,43 @@ const modalStyle = {
     ],
     facial: [
       {
-        src: '/images/main.jpg',
+        src: '/images/dodong.jpg',
         alt: 'Nose Piercing',
         title: 'Nose Piercing',
         description: 'inframe: Maze Deetz.',
       },
       {
-        src: '/images/main.jpg',
+        src: '/images/ear-piercing.jpg',
+        alt: 'Eyebrow Piercing',
+        title: 'Eyebrow Piercing',
+        description: 'Inframe: Maze Deetz.',
+      },
+      {
+        src: '/images/ear-piercing.jpg',
+        alt: 'Eyebrow Piercing',
+        title: 'Eyebrow Piercing',
+        description: 'Inframe: Maze Deetz.',
+      },
+            {
+        src: '/images/dodong.jpg',
+        alt: 'Nose Piercing',
+        title: 'Nose Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
+      {
+        src: '/images/ear-piercing.jpg',
+        alt: 'Eyebrow Piercing',
+        title: 'Eyebrow Piercing',
+        description: 'Inframe: Maze Deetz.',
+      },
+            {
+        src: '/images/dodong.jpg',
+        alt: 'Nose Piercing',
+        title: 'Nose Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
+      {
+        src: '/images/ear-piercing.jpg',
         alt: 'Eyebrow Piercing',
         title: 'Eyebrow Piercing',
         description: 'Inframe: Maze Deetz.',
@@ -107,27 +164,66 @@ const modalStyle = {
     ],
     oral: [
       {
-        src: '/images/main transparent.png',
+        src: '/images/dodong.jpg',
         alt: 'Tongue Piercing',
         title: 'Tongue Piercing',
         description: 'Bold and expressive.',
       },
       {
-        src: '/images/main transparent.png',
-        alt: 'Lip Piercing',
-        title: 'Lip Piercing',
-        description: 'Various jewelry options.',
+        src: '/images/dodong.jpg',
+        alt: 'Tongue Piercing',
+        title: 'Tongue Piercing',
+        description: 'Bold and expressive.',
+      },{
+        src: '/images/dodong.jpg',
+        alt: 'Tongue Piercing',
+        title: 'Tongue Piercing',
+        description: 'Bold and expressive.',
+      },{
+        src: '/images/dodong.jpg',
+        alt: 'Tongue Piercing',
+        title: 'Tongue Piercing',
+        description: 'Bold and expressive.',
+      },{
+        src: '/images/dodong.jpg',
+        alt: 'Tongue Piercing',
+        title: 'Tongue Piercing',
+        description: 'Bold and expressive.',
       },
     ],
     others: [
       {
-        src: '/images/main transparent.png',
+        src: '/images/dodong.jpg',
         alt: 'Septum Piercing',
         title: 'Septum Piercing',
         description: 'Classic bold style.',
       },
       {
-        src: '/images/main transparent.png',
+        src: '/images/ear-piercing.jpg',
+        alt: 'Ear Piercing',
+        title: 'Multi Piercings',
+        description: 'Stylish and versatile.',
+      },
+       {
+        src: '/images/ear-piercing.jpg',
+        alt: 'Ear Piercing',
+        title: 'Multi Piercings',
+        description: 'Stylish and versatile.',
+      },
+      {
+        src: '/images/dodong.jpg',
+        alt: 'Septum Piercing',
+        title: 'Septum Piercing',
+        description: 'Classic bold style.',
+      },
+      {
+        src: '/images/ear-piercing.jpg',
+        alt: 'Ear Piercing',
+        title: 'Multi Piercings',
+        description: 'Stylish and versatile.',
+      },
+       {
+        src: '/images/ear-piercing.jpg',
         alt: 'Ear Piercing',
         title: 'Multi Piercings',
         description: 'Stylish and versatile.',
@@ -157,6 +253,7 @@ const modalStyle = {
         centeredSlides={true}
         slidesPerView="auto"
         loop={true}
+        onSwiper={(swiper) => (swiperRef.current = swiper)} // 👈 Save the instance
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
@@ -169,15 +266,21 @@ const modalStyle = {
         className="gallery-swiper"
       >
         {galleries[activeTab].map((slide, index) => (
-          <SwiperSlide
-            key={index}
-            className="gallery-slide"
-            onClick={() => handleOpenModal(slide)}
-          >
-            <img src={slide.src} alt={slide.alt} />
-
-          </SwiperSlide>
-        ))}
+  <SwiperSlide
+    key={index}
+    className="gallery-slide"
+    onClick={() => {
+      // Slide to the clicked image
+      if (swiperRef.current) {
+        swiperRef.current.slideToLoop(index);
+      }
+      // Open modal if needed
+      handleOpenModal(slide);
+    }}
+  >
+    <img src={slide.src} alt={slide.alt} />
+  </SwiperSlide>
+))}
       </Swiper>
 
       <Modal
@@ -192,7 +295,7 @@ const modalStyle = {
         }}
       >
         <Fade in={open}>
-          <Box sx={modalStyle}>
+          <Box sx={gothicStyle}>
             {selectedImage && (
               <>
                 <img
@@ -205,11 +308,16 @@ const modalStyle = {
                       height: 'auto',
                       borderRadius: '8px',
                       marginBottom: '1rem',
-                      objectFit: 'contain'
+                      objectFit: 'contain',
                     }}
                   />
-                <Typography variant="h6">{selectedImage.title}</Typography>
-                <Typography sx={{ mt: 1 }}>{selectedImage.description}</Typography>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.8rem', color: '#c0a3e5', fontFamily: 'Cinzel, serif', textAlign: 'center',}}>
+                  {selectedImage.title}
+                </Typography>
+
+                <Typography sx={{ mt: 1, fontSize: '.8rem', color: '#aaa', fontFamily: 'Cinzel, serif', marginLeft: 'auto', }}>
+                  {selectedImage.description}
+                </Typography>
               </>
             )}
           </Box>
