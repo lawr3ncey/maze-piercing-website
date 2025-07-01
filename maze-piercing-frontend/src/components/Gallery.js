@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import Backdrop from '@mui/material/Backdrop';
+import Grow from '@mui/material/Grow';
 import { useSpring, animated } from '@react-spring/web';
 
 const Fade = React.forwardRef(function Fade(props, ref) {
@@ -57,8 +58,9 @@ const gothicStyle = {
   fontFamily: '"Cinzel", serif',
 };
 
-  const Gallery = () => {
+const Gallery = () => {
     const [activeTab, setActiveTab] = useState('ear');
+    const [checked, setChecked] = useState(true);
     const [open, setOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const swiperRef = useRef(null); // 🧠 This stores Swiper instance
@@ -81,36 +83,42 @@ const gothicStyle = {
         title: 'Ear Piercing',
         description: 'inframe: Maze Deetz.',
       },
+      
       {
         src: '/images/dodong.jpg',
         alt: 'Ear Piercing',
         title: 'Ear Piercing',
         description: 'inframe: Maze Deetz.',
       },
+
       {
         src: '/images/dodong.jpg',
         alt: 'Ear Piercing',
         title: 'Ear Piercing',
         description: 'inframe: Maze Deetz.',
       },
+
       {
         src: '/images/dodong.jpg',
         alt: 'Ear Piercing',
         title: 'Ear Piercing',
         description: 'inframe: Maze Deetz.',
       },
+
       {
         src: '/images/dodong.jpg',
         alt: 'Ear Piercing',
         title: 'Ear Piercing',
         description: 'inframe: Maze Deetz.',
       },
+
       {
         src: '/images/ear-piercing.jpg',
         alt: 'Ear Piercing',
         title: 'Helix Style',
         description: 'Inframe: Maze Deetz.',
       },
+
       {
         src: '/images/main.jpg',
         alt: 'Ear Piercing',
@@ -118,6 +126,7 @@ const gothicStyle = {
         description: 'Inframe: Maze Deetz.',
       },
     ],
+
     facial: [
       {
         src: '/images/dodong.jpg',
@@ -125,36 +134,42 @@ const gothicStyle = {
         title: 'Nose Piercing',
         description: 'inframe: Maze Deetz.',
       },
+
       {
         src: '/images/ear-piercing.jpg',
         alt: 'Eyebrow Piercing',
         title: 'Eyebrow Piercing',
         description: 'Inframe: Maze Deetz.',
       },
+
       {
         src: '/images/ear-piercing.jpg',
         alt: 'Eyebrow Piercing',
         title: 'Eyebrow Piercing',
         description: 'Inframe: Maze Deetz.',
       },
-            {
+
+      {
         src: '/images/dodong.jpg',
         alt: 'Nose Piercing',
         title: 'Nose Piercing',
         description: 'inframe: Maze Deetz.',
       },
+
       {
         src: '/images/ear-piercing.jpg',
         alt: 'Eyebrow Piercing',
         title: 'Eyebrow Piercing',
         description: 'Inframe: Maze Deetz.',
       },
-            {
+
+      {
         src: '/images/dodong.jpg',
         alt: 'Nose Piercing',
         title: 'Nose Piercing',
         description: 'inframe: Maze Deetz.',
       },
+
       {
         src: '/images/ear-piercing.jpg',
         alt: 'Eyebrow Piercing',
@@ -162,35 +177,58 @@ const gothicStyle = {
         description: 'Inframe: Maze Deetz.',
       },
     ],
+
     oral: [
       {
         src: '/images/dodong.jpg',
-        alt: 'Tongue Piercing',
-        title: 'Tongue Piercing',
-        description: 'Bold and expressive.',
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
       },
+      
       {
         src: '/images/dodong.jpg',
-        alt: 'Tongue Piercing',
-        title: 'Tongue Piercing',
-        description: 'Bold and expressive.',
-      },{
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
+
+      {
         src: '/images/dodong.jpg',
-        alt: 'Tongue Piercing',
-        title: 'Tongue Piercing',
-        description: 'Bold and expressive.',
-      },{
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
+
+      {
         src: '/images/dodong.jpg',
-        alt: 'Tongue Piercing',
-        title: 'Tongue Piercing',
-        description: 'Bold and expressive.',
-      },{
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
+
+      {
         src: '/images/dodong.jpg',
-        alt: 'Tongue Piercing',
-        title: 'Tongue Piercing',
-        description: 'Bold and expressive.',
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
+
+      {
+        src: '/images/ear-piercing.jpg',
+        alt: 'Ear Piercing',
+        title: 'Helix Style',
+        description: 'Inframe: Maze Deetz.',
+      },
+
+      {
+        src: '/images/main.jpg',
+        alt: 'Ear Piercing',
+        title: 'Helix Style',
+        description: 'Inframe: Maze Deetz.',
       },
     ],
+
     other: [
       {
         src: '/images/dodong.jpg',
@@ -198,31 +236,36 @@ const gothicStyle = {
         title: 'Septum Piercing',
         description: 'Classic bold style.',
       },
+
       {
         src: '/images/ear-piercing.jpg',
         alt: 'Ear Piercing',
         title: 'Multi Piercings',
         description: 'Stylish and versatile.',
       },
-       {
+
+      {
         src: '/images/ear-piercing.jpg',
         alt: 'Ear Piercing',
         title: 'Multi Piercings',
         description: 'Stylish and versatile.',
       },
+
       {
         src: '/images/dodong.jpg',
         alt: 'Septum Piercing',
         title: 'Septum Piercing',
         description: 'Classic bold style.',
       },
+
       {
         src: '/images/ear-piercing.jpg',
         alt: 'Ear Piercing',
         title: 'Multi Piercings',
         description: 'Stylish and versatile.',
       },
-       {
+
+      {
         src: '/images/ear-piercing.jpg',
         alt: 'Ear Piercing',
         title: 'Multi Piercings',
@@ -234,54 +277,63 @@ const gothicStyle = {
   return (
     <section className="gallery">
       <h2>Collection</h2>
-
       <div className="gallery-tabs">
         {['ear', 'facial', 'oral', 'other'].map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => {
+              setChecked(false); // start fade out
+              setTimeout(() => {
+                setActiveTab(tab); // switch tab
+                setChecked(true); // start fade in
+              }, 100); // short delay for smooth effect
+            }}
             className={activeTab === tab ? 'active' : ''}
           >
             {tab.charAt(0).toUpperCase() + tab.slice(1)} Piercing
           </button>
         ))}
+
       </div>
 
-      <Swiper
-        effect="coverflow"
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView="auto"
-        loop={true}
-        onSwiper={(swiper) => (swiperRef.current = swiper)} // 👈 Save the instance
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 100,
-          modifier: 2.5,
-          slideShadows: false,
-        }}
-        navigation
-        modules={[Navigation, EffectCoverflow]}
-        className="gallery-swiper"
-      >
-        {galleries[activeTab].map((slide, index) => (
-  <SwiperSlide
-    key={index}
-    className="gallery-slide"
-    onClick={() => {
-      // Slide to the clicked image
-      if (swiperRef.current) {
-        swiperRef.current.slideToLoop(index);
-      }
-      // Open modal if needed
-      handleOpenModal(slide);
-    }}
-  >
-    <img src={slide.src} alt={slide.alt} />
-  </SwiperSlide>
-))}
-      </Swiper>
+      <Grow in={checked} timeout={500} key={activeTab}>
+        <div>
+          <Swiper
+            key={activeTab} // <== this forces Swiper to re-mount
+            effect="coverflow"
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView="auto"
+            loop={true}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 100,
+              modifier: 2.5,
+              slideShadows: false,
+            }}
+            navigation
+            modules={[Navigation, EffectCoverflow]}
+            className="gallery-swiper"
+          >
+            {galleries[activeTab].map((slide, index) => (
+              <SwiperSlide
+                key={index}
+                className="gallery-slide"
+                onClick={() => {
+                  if (swiperRef.current) {
+                    swiperRef.current.slideToLoop(index);
+                  }
+                  handleOpenModal(slide);
+                }}
+              >
+                <img src={slide.src} alt={slide.alt} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </Grow>
 
       <Modal
         open={open}
@@ -299,25 +351,25 @@ const gothicStyle = {
             {selectedImage && (
               <>
                 <img
-                    src={selectedImage.src}
-                    alt={selectedImage.alt}
-                    style={{
-                      width: '100%',
-                      maxWidth: '100%',
-                      maxHeight: '75vh', // limits height to 70% of viewport
-                      height: 'auto',
-                      borderRadius: '8px',
-                      marginBottom: '1rem',
-                      objectFit: 'contain',
-                    }}
-                  />
-                <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.8rem', color: '#c0a3e5', fontFamily: 'Cinzel, serif', textAlign: 'center',}}>
-                  {selectedImage.title}
-                </Typography>
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  style={{
+                    width: '100%',
+                    maxWidth: '100%',
+                    maxHeight: '75vh', // limits height to 70% of viewport
+                    height: 'auto',
+                    borderRadius: '8px',
+                    marginBottom: '1rem',
+                    objectFit: 'contain',
+                  }}
+                />
+                  <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.8rem', color: '#c0a3e5', fontFamily: 'Cinzel, serif', textAlign: 'center',}}>
+                    {selectedImage.title}
+                  </Typography>
 
-                <Typography sx={{ mt: 1, fontSize: '.8rem', color: '#aaa', fontFamily: 'Cinzel, serif', marginLeft: 'auto', }}>
-                  {selectedImage.description}
-                </Typography>
+                  <Typography sx={{ mt: 1, fontSize: '.8rem', color: '#aaa', fontFamily: 'Cinzel, serif', marginLeft: 'auto', }}>
+                    {selectedImage.description}
+                  </Typography>
               </>
             )}
           </Box>

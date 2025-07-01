@@ -59,8 +59,6 @@
   border-radius: 10px;
 }
 
-
-
 .swiper-slide-active img {
   filter: blur(0px);
 }

@@ -36,7 +36,7 @@ function App() {
                 <a href="/booking" className="cta-btn">Book Now</a>
               </section>
 
-                <Gallery />
+              <Gallery />
 
 
               {/* ABOUT ME */}
