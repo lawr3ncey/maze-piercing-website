@@ -27,7 +27,7 @@ function App() {
               <section className="hero">
                 <div className="logo">Maze Piercing Studio</div>
                 <p className="tagline">Stylish. Safe. Professional.</p>
-                <a href="/booking" className="cta-btn">Book Appointment</a>
+                <nav></nav>
               </section>
 
               {/* CTA SECTION */}

@@ -1,6 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, EffectCoverflow } from 'swiper/modules';
+import { useSpring, animated } from '@react-spring/web';
+import { motion, AnimatePresence } from 'framer-motion';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-coverflow';
@@ -11,7 +14,6 @@ import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import Backdrop from '@mui/material/Backdrop';
 import Grow from '@mui/material/Grow';
-import { useSpring, animated } from '@react-spring/web';
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -64,6 +66,8 @@ const Gallery = () => {
     const [open, setOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const swiperRef = useRef(null); // 🧠 This stores Swiper instance
+    const [centerIndex, setCenterIndex] = useState(0);
+
 
     const handleOpenModal = (image) => {
       setSelectedImage(image);
@@ -232,45 +236,75 @@ const Gallery = () => {
     other: [
       {
         src: '/images/dodong.jpg',
-        alt: 'Septum Piercing',
-        title: 'Septum Piercing',
-        description: 'Classic bold style.',
-      },
-
-      {
-        src: '/images/ear-piercing.jpg',
         alt: 'Ear Piercing',
-        title: 'Multi Piercings',
-        description: 'Stylish and versatile.',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
       },
-
+      
       {
-        src: '/images/ear-piercing.jpg',
+        src: '/images/dodong.jpg',
         alt: 'Ear Piercing',
-        title: 'Multi Piercings',
-        description: 'Stylish and versatile.',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
       },
 
       {
         src: '/images/dodong.jpg',
-        alt: 'Septum Piercing',
-        title: 'Septum Piercing',
-        description: 'Classic bold style.',
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
+
+      {
+        src: '/images/dodong.jpg',
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
+      },
+
+      {
+        src: '/images/dodong.jpg',
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
       },
 
       {
         src: '/images/ear-piercing.jpg',
         alt: 'Ear Piercing',
-        title: 'Multi Piercings',
-        description: 'Stylish and versatile.',
+        title: 'Helix Style',
+        description: 'Inframe: Maze Deetz.',
+      },
+
+      {
+        src: '/images/main.jpg',
+        alt: 'Ear Piercing',
+        title: 'Helix Style',
+        description: 'Inframe: Maze Deetz.',
+      },
+
+      {
+        src: '/images/dodong.jpg',
+        alt: 'Ear Piercing',
+        title: 'Ear Piercing',
+        description: 'inframe: Maze Deetz.',
       },
 
       {
         src: '/images/ear-piercing.jpg',
         alt: 'Ear Piercing',
-        title: 'Multi Piercings',
-        description: 'Stylish and versatile.',
+        title: 'Helix Style',
+        description: 'Inframe: Maze Deetz.',
       },
+
+      {
+        src: '/images/main.jpg',
+        alt: 'Ear Piercing',
+        title: 'Helix Style',
+        description: 'Inframe: Maze Deetz.',
+      },
+      
+      
     ],
   };
 
@@ -299,13 +333,15 @@ const Gallery = () => {
       <Grow in={checked} timeout={500} key={activeTab}>
         <div>
           <Swiper
-            key={activeTab} // <== this forces Swiper to re-mount
+            key={activeTab}
             effect="coverflow"
             grabCursor={true}
+            slidesPerView={5} // Show 5 slides at once
+            spaceBetween={10} // Optional: space between slides
             centeredSlides={true}
-            slidesPerView="auto"
             loop={true}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSlideChange={(swiper) => setCenterIndex(swiper.realIndex)}
             coverflowEffect={{
               rotate: 0,
               stretch: 0,
@@ -317,20 +353,23 @@ const Gallery = () => {
             modules={[Navigation, EffectCoverflow]}
             className="gallery-swiper"
           >
-            {galleries[activeTab].map((slide, index) => (
-              <SwiperSlide
-                key={index}
-                className="gallery-slide"
-                onClick={() => {
-                  if (swiperRef.current) {
-                    swiperRef.current.slideToLoop(index);
-                  }
-                  handleOpenModal(slide);
-                }}
-              >
-                <img src={slide.src} alt={slide.alt} />
-              </SwiperSlide>
-            ))}
+            <AnimatePresence mode="wait">
+              {galleries[activeTab].map((slide, index) => {
+                const distance = Math.abs(index - centerIndex);
+                return (
+                  <SwiperSlide
+                    key={index}
+                    className={`gallery-slide delay-${distance}`}
+                    onClick={() => {
+                      swiperRef.current?.slideToLoop(index);
+                      handleOpenModal(slide);
+                    }}
+                  >
+                    <img src={slide.src} alt={slide.alt} />
+                  </SwiperSlide>
+                );
+              })}
+            </AnimatePresence>
           </Swiper>
         </div>
       </Grow>
