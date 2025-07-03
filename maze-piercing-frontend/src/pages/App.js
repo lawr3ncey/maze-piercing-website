@@ -4,7 +4,10 @@ import AdminDashboard from './AdminDashboard'; // ✅ Assuming AdminDashboard is
 import AdminLayout from '../layouts/AdminLayout'; // ⬅️ Go up one level
 import BookingForm from '../components/BookingForm'; // ⬅️ Go up one level
 import '../styles/App.css'; // ⬅️ Go up one level
+import '../styles/HeroSection.css'; // ⬅️ Go up one level
+import '../styles/homepage.css'; // ⬅️ Go up one level
 import Gallery from '../components/Gallery'; // ⬅️ Go up one level
+import HeroSection from './HeroSection';
 
 function App() {
   return (
@@ -22,13 +25,9 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="portfolio-homepage">
-              {/* HERO SECTION */}
-              <section className="hero">
-                <div className="logo">Maze Piercing Studio</div>
-                <p className="tagline">Stylish. Safe. Professional.</p>
-                <nav></nav>
-              </section>
+            <div className="homepage">
+
+              <HeroSection />
 
               {/* CTA SECTION */}
               <section className="cta-section">
@@ -37,7 +36,6 @@ function App() {
               </section>
 
               <Gallery />
-
 
               {/* ABOUT ME */}
               <section className="about-me">
