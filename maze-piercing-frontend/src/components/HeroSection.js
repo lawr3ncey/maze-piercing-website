@@ -8,7 +8,7 @@ export default function HeroSection() {
     <section className="hero">
       {/* Hero Content */}
       <div className="hero-content">
-        <h1 className="logo">Maze Piercing Studio</h1>
+        <h1 className="logo">Blood and Thorn of Maze</h1>
         <p className="tagline">Stylish. Safe. Professional.</p>
       </div>
 

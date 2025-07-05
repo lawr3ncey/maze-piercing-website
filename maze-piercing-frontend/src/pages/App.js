@@ -1,13 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AdminDashboard from './AdminDashboard'; // ✅ Assuming AdminDashboard is also in /pages
+import AdminDashboard from './Admin/AdminDashboard'; // ✅ Assuming AdminDashboard is also in /pages
 import AdminLayout from '../layouts/AdminLayout'; // ⬅️ Go up one level
-import BookingForm from '../components/BookingForm'; // ⬅️ Go up one level
+import BookingForm from '../components/BookingForm'; // ⬅️ Go up one 
+
+import UserLayout from '../layouts/UserLayout';
+import TemporarilyUnavailable from '../layouts/TemporarilyUnavailable';
+
 import '../styles/App.css'; // ⬅️ Go up one level
 import '../styles/HeroSection.css'; // ⬅️ Go up one level
-import '../styles/homepage.css'; // ⬅️ Go up one level
-import Gallery from '../components/Gallery'; // ⬅️ Go up one level
-import HeroSection from './HeroSection';
+
+import '../styles/TemporarilyUnavailable.css';
+
+
 
 function App() {
   return (
@@ -21,43 +26,18 @@ function App() {
         {/* Booking Form page */}
         <Route path="/booking" element={<BookingForm />} />
 
-        {/* Homepage */}
-        <Route
-          path="/"
-          element={
-            <div className="homepage">
+      
+        
+      </Routes>
 
-              <HeroSection />
-
-              {/* CTA SECTION */}
-              <section className="cta-section">
-                <h2>Ready for your next piercing?</h2>
-                <a href="/booking" className="cta-btn">Book Now</a>
-              </section>
-
-              <Gallery />
-
-              {/* ABOUT ME */}
-              <section className="about-me">
-                <h2>About Me</h2>
-                <p>
-                  I’m a passionate professional dedicated to helping clients express
-                  themselves through safe, stylish, and expertly done piercings.
-                </p>
-              </section>
-
-              {/* FOOTER */}
-              <footer className="footer">
-                <p>© Maze Piercing</p>
-                <div className="social-links">
-                  <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a> |{" "}
-                  <a href="https://facebook.com" target="_blank" rel="noreferrer">Facebook</a> |{" "}
-                  <a href="mailto:contact@mazepiercing.com">Contact</a>
-                </div>
-              </footer>
-            </div>
-          }
-        />
+      <Routes>
+        {/* Public/User-facing layout */}
+        <Route path="/" element={<UserLayout />}>
+        <Route index element={<TemporarilyUnavailable />} />
+        <Route path="blogs" element={<TemporarilyUnavailable />} />
+        <Route path="shop" element={<TemporarilyUnavailable />} />
+        <Route path="aftercare" element={<TemporarilyUnavailable />} />
+                </Route>  
       </Routes>
     </Router>
   );
