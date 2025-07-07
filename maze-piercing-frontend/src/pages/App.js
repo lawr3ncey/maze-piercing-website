@@ -8,7 +8,10 @@ import TemporarilyUnavailable from '../layouts/TemporarilyUnavailable';
 
 import Porfolio from './User/Portfolio';
 import Home from './User/Home';
-
+import Blogs from './User/Blogs';
+import Aftercare from './User/Aftercare';
+import Connect from './User/Connect';
+import Shop from './User/Shop';
 
 
 
@@ -17,7 +20,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Admin Panel */}
+        {/* Admin Panel */} 
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
         </Route>
@@ -34,8 +37,10 @@ function App() {
         <Route path="/" element={<UserLayout />}>
         <Route index element={<Home />} />
         <Route path="Portfolio" element={<Porfolio />} />
-        <Route path="Home" element={<Home />} />
-        <Route path="aftercare" element={<TemporarilyUnavailable />} />
+        <Route path="Blogs" element={<Blogs />} />
+        <Route path="Aftercare" element={<Aftercare />} />
+        <Route path="Connect" element={<Connect />} />
+        <Route path="Shop" element={<Shop />} />
         </Route>  
       </Routes>
     </Router>
