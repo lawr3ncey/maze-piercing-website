@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdminDashboard from './Admin/AdminDashboard'; // ✅ Assuming AdminDashboard is also in /pages
 import AdminLayout from '../layouts/AdminLayout'; // ⬅️ Go up one level
-import BookingForm from '../components/BookingForm'; // ⬅️ Go up one 
+import BookingForm from '../components/User/BookingForm'; // ⬅️ Go up one 
 
 import UserLayout from '../layouts/UserLayout';
 import TemporarilyUnavailable from '../layouts/TemporarilyUnavailable';
