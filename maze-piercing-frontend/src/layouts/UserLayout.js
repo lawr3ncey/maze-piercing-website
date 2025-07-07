@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import '../styles/Home.css';
-import '../styles/App.css';
+
+import '../styles/UserLayout.css';
 import '../styles/HeroSection.css';
 
 function UserLayout() {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <div>
+    <div className='UserLayout'>
       {/* HERO SECTION */}
       <section className="hero">
         <div className="hero-content">

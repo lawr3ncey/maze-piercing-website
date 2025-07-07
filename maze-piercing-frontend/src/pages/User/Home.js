@@ -1,8 +1,8 @@
 import '../../styles/Home.css';
-import '../../styles/App.css';
-import '../../styles/HeroSection.css';
 
-export default function Home() {
+import TemporarilyUnavailable from '../../layouts/TemporarilyUnavailable';
+
+function Home() {
   return (
     <div className="home-content">
       {/* CTA SECTION */}
@@ -10,6 +10,8 @@ export default function Home() {
         <h2>Ready for your next piercing?</h2>
         <a href="/booking" className="cta-btn">Book Now</a>
       </section>
+
+      <TemporarilyUnavailable/>
 
       {/* ABOUT ME */}
       <section className="about-me">
@@ -22,3 +24,4 @@ export default function Home() {
     </div>
   );
 }
+export default Home;

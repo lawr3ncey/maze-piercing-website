@@ -1,8 +1,9 @@
 .unavailable-container {
   text-align: center;
-  padding: 100px 20px;
+  padding: 300px 20px;
   font-family: 'Arial', sans-serif;
-  color: #444;
+  color: #b32c2c;
+  background-color: black;
 }
 
 .unavailable-container h2 {

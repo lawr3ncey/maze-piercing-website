@@ -1,13 +1,12 @@
 .gallery {
   padding: 40px 20px;
-  background: #fff;
   text-align: center;
 }
 
 .gallery h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #6f4e7c;
+  color: #eee;
 }
 
 .gallery-tabs {
@@ -38,10 +37,10 @@
 
 .gallery-slide {
   width: 300px;
-  background: #f9f9f9;
+
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+
+
   cursor: pointer;
   transform: scale(0.8);
   transition: all 0.3s ease;

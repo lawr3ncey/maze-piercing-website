@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdminDashboard from './Admin/AdminDashboard'; // ✅ Assuming AdminDashboard is also in /pages
 import AdminLayout from '../layouts/AdminLayout'; // ⬅️ Go up one level
@@ -7,10 +6,10 @@ import BookingForm from '../components/BookingForm'; // ⬅️ Go up one
 import UserLayout from '../layouts/UserLayout';
 import TemporarilyUnavailable from '../layouts/TemporarilyUnavailable';
 
-import '../styles/App.css'; // ⬅️ Go up one level
-import '../styles/HeroSection.css'; // ⬅️ Go up one level
+import Porfolio from './User/Portfolio';
+import Home from './User/Home';
 
-import '../styles/TemporarilyUnavailable.css';
+
 
 
 
@@ -33,11 +32,11 @@ function App() {
       <Routes>
         {/* Public/User-facing layout */}
         <Route path="/" element={<UserLayout />}>
-        <Route index element={<TemporarilyUnavailable />} />
-        <Route path="blogs" element={<TemporarilyUnavailable />} />
-        <Route path="shop" element={<TemporarilyUnavailable />} />
+        <Route index element={<Home />} />
+        <Route path="Portfolio" element={<Porfolio />} />
+        <Route path="Home" element={<Home />} />
         <Route path="aftercare" element={<TemporarilyUnavailable />} />
-                </Route>  
+        </Route>  
       </Routes>
     </Router>
   );

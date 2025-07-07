@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-coverflow';
-import '../styles/Gallery.css';
+import '../../styles/Gallery.css';
 
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';

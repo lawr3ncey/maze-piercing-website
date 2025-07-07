@@ -1,0 +1,15 @@
+.footer {
+  background-color: black;
+  color: #fff;
+  padding: 20px;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.UserLayout {
+  background-color: #222;
+}
+
