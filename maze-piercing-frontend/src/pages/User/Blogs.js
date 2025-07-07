@@ -1,9 +1,10 @@
-import '../../styles/Home.css';
+import '../../styles/User/Home.css';
 
 import TemporarilyUnavailable from '../../layouts/TemporarilyUnavailable';
 
 function Blogs() {
   return (
+    <>
     <div className="home-content">
       {/* CTA SECTION */}
       <section className="cta-section">
@@ -22,6 +23,7 @@ function Blogs() {
         </p>
       </section>
     </div>
+    </>
   );
 }
 export default Blogs;

@@ -1,6 +1,7 @@
 .gallery {
   padding: 40px 20px;
   text-align: center;
+  background: linear-gradient( black, #b37eec, #ffffff, #b37eec, black);
 }
 
 .gallery h2 {
@@ -19,7 +20,7 @@
 .gallery-tabs button {
   padding: 0.5rem 1.2rem;
   border: none;
-  background-color: #444;
+  background-color: #8f5da3;
   color: white;
   border-radius: 20px;
   cursor: pointer;
@@ -28,7 +29,7 @@
 
 .gallery-tabs button:hover,
 .gallery-tabs button.active {
-  background-color: #6f4e7c;
+  background-color: #6f4181;
 }
 
 .gallery-swiper {

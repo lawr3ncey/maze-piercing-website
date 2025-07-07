@@ -1,0 +1,100 @@
+.home-wrapper {
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.home-content {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.cta-section {
+  padding: 60px 20px;
+}
+
+.about-me {
+  padding: 60px 20px;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #bd03c4;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+
+
+
+.home-hero {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  padding: 40px;
+}
+
+.hero-image {
+  flex: 1;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ 
+}
+
+.home-hero-content {
+  flex: .5 3;
+  background-color: #f8eaf5; /* soft pink like the example */
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.welcome-text {
+  color: #b06faa;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.hero-headline {
+  font-size: 2.5rem;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-subtext {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.hero-button {
+  text-decoration: none;
+  background-color: #c06fb0;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-align: center;
+  width: fit-content;
+  transition: background-color 0.3s;
+}
+
+.hero-button:hover {
+  background-color: #aa5a96;
+}

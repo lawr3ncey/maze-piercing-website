@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
-import '../styles/UserLayout.css';
-import '../styles/HeroSection.css';
+import '../styles/User/UserLayout.css';
+
 
 function UserLayout() {
   const [isOpen, setIsOpen] = useState(false);
   return (
+    <>
     <div className='UserLayout'>
       {/* HERO SECTION */}
       <section className="hero">
         <div className="hero-content">
-          <h1 className="logo">Blood and Thorn of Maze</h1>
+          <h1 className="logo">{'<Blood and Ťhorn of mazƎ>'}</h1>
           <p className="tagline">Stylish. Safe. Professional.</p>
         </div>
 
-        {/* Navigation Bar */}
         <nav className="hero-nav">
           <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
             ☰
@@ -30,6 +30,11 @@ function UserLayout() {
           </ul>
         </nav>
       </section>
+
+
+
+        
+
 
       {/* PAGE CONTENT */}
       <main>
@@ -46,6 +51,7 @@ function UserLayout() {
         </div>
       </footer>
     </div>
+    </>
   );
 }
 

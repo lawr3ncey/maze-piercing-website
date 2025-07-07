@@ -18,6 +18,7 @@ import Shop from './User/Shop';
 
 function App() {
   return (
+    <>
     <Router>
       <Routes>
         {/* Admin Panel */} 
@@ -28,7 +29,7 @@ function App() {
         {/* Booking Form page */}
         <Route path="/booking" element={<BookingForm />} />
 
-      
+  
         
       </Routes>
 
@@ -44,6 +45,7 @@ function App() {
         </Route>  
       </Routes>
     </Router>
+    </>
   );
 }
 

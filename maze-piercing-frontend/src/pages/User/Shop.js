@@ -1,4 +1,4 @@
-import '../../styles/Home.css';
+import '../../styles/User/Home.css';
 
 import TemporarilyUnavailable from '../../layouts/TemporarilyUnavailable';
 
