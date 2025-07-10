@@ -53,7 +53,7 @@
 
 .home-hero-content {
   flex: .5 3;
-  background-color: #f8eaf5; /* soft pink like the example */
+  background-color: #f5ebff;
   padding: 80px 40px;
   display: flex;
   flex-direction: column;
@@ -62,7 +62,7 @@
 }
 
 .welcome-text {
-  color: #b06faa;
+  color: #b692db;
   font-size: 14px;
   letter-spacing: 2px;
   margin-bottom: 10px;
@@ -85,7 +85,7 @@
 
 .hero-button {
   text-decoration: none;
-  background-color: #c06fb0;
+  background-color: #b692db;
   color: white;
   padding: 12px 24px;
   border-radius: 4px;

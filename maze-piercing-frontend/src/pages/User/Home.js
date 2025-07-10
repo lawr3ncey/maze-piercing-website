@@ -31,6 +31,15 @@ function Home() {
       <div className="home-lower-section">
         <TemporarilyUnavailable />
       </div>
+
+      {/* ABOUT ME */}
+      <section className="about-me">
+        <h2>About Me</h2>
+        <p>
+          I'm a passionate professional dedicated to helping clients express
+          themselves through safe, stylish, and expertly done piercings.
+        </p>
+      </section>
     </>
   );
 }

@@ -1,0 +1,49 @@
+.aftercare-page {
+    background-color: #222;
+    color: #fff;
+    padding: 4rem;
+    font-family: sans-serif;
+    width: 80%;
+    margin: auto;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #d8b4fe;
+  margin-bottom: 1rem;
+}
+
+.intro-text {
+  text-align: center;
+  color: #bbb;
+  margin-bottom: 2rem;
+}
+
+.accordion-item {
+  background-color: #333;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-title {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  background-color: #0e0e0e;
+  color: #d8b4fe;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  cursor: pointer;
+  font-size: large;
+}
+
+.accordion-content {
+  padding: 2rem;
+  color: #ccc;
+  background-color: black;
+  font-size: medium;
+}

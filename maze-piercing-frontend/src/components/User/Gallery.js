@@ -55,7 +55,7 @@ const gothicStyle = {
   color: '#eee',
   border: '2px solid #6f4e7c',
   borderRadius: '12px',
-  boxShadow: '0 0 25px #6f4e7c',
+  boxShadow: '0 0 25px 14px #6f4e7c',
   p: 4,
   fontFamily: '"Cinzel", serif',
 };

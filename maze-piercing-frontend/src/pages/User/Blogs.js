@@ -1,28 +1,28 @@
-import '../../styles/User/Home.css';
+import '../../styles/User/Blogs.css';
 
 import TemporarilyUnavailable from '../../layouts/TemporarilyUnavailable';
 
 function Blogs() {
   return (
     <>
-    <div className="home-content">
-      {/* CTA SECTION */}
-      <section className="cta-section">
-        <h2>Ready for your next piercing?</h2>
-        <a href="/booking" className="cta-btn">Book Now</a>
-      </section>
+    <div className="blog-section">
+      <h2>Latest Blogs</h2>
+      <p>Discover tips, stories, and insights about piercing, aftercare, and body art culture.</p>
 
-      <TemporarilyUnavailable/>
+      <div className="blog-list">
+        {/* Sample Blog Post */}
+        <div className="blog-card">
+          <h3 className="blog-title">The Art of Piercing: What You Should Know</h3>
+          <p className="blog-excerpt">
+            Thinking about getting your first piercing? Here's what to expect before, during, and after the process...
+          </p>
+          <a href="/blogs/art-of-piercing" className="read-more">Read More</a>
+        </div>
 
-      {/* ABOUT ME */}
-      <section className="about-me">
-        <h2>About Me</h2>
-        <p>
-          I'm a passionate professional dedicated to helping clients express
-          themselves through safe, stylish, and expertly done piercings.
-        </p>
-      </section>
+        {/* Add more <div className="blog-card"> blocks for more posts */}
+      </div>
     </div>
+
     </>
   );
 }
