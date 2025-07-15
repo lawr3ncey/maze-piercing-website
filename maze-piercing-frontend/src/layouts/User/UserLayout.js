@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
-import '../styles/User/UserLayout.css';
+import '../../styles/User/UserLayout.css';
 
 
 function UserLayout() {

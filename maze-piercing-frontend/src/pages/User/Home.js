@@ -1,5 +1,5 @@
 import '../../styles/User/Home.css';
-import TemporarilyUnavailable from '../../layouts/TemporarilyUnavailable';
+import TemporarilyUnavailable from '../../layouts/User/TemporarilyUnavailable';
 
 function Home() {
   return (

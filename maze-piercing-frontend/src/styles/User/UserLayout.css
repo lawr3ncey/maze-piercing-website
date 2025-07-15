@@ -81,6 +81,8 @@
   color: #d8b4fe;
   font-weight: normal;
   margin: 0;
+  text-decoration: none; /* removes underline */
+  display: inline-block; /* optional, keeps spacing clean */
 }
 
 @font-face {

@@ -1,4 +1,4 @@
-import '../styles/User/TemporarilyUnavailable.css'; // Optional: for custom styling
+import '../../styles/User/TemporarilyUnavailable.css'; // Optional: for custom styling
 
 function TemporarilyUnavailable() {
   return (

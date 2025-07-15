@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
-import '../styles/Admin/AdminLayout.css'; // we'll style later
+import '../../styles/Admin/AdminLayout.css'; // we'll style later
 
 function AdminLayout() {
   return (
