@@ -26,94 +26,75 @@ const Aftercare = () => {
         help yours a little easier.
       </p>
 
-      <AccordionItem title="Normal things to expect during healing">
-        <h4>Swelling</h4>
-        <p>
-          Swelling is normal. Initial swelling is expected the first 5–7 days, 
-          but may decrease gradually in the first month.
-        </p>
+      <AccordionItem title="Typical outcomes during the healing process">
+        <h4>Pain</h4>
+          <p>Any piercing is likely to cause pain and stiffness for a few days or weeks.</p>
+          <p>Don't move or touch your piercing.</p>
 
         <br/>
-        
+
         <h4>Bleeding</h4>
-        <p>
-          Some bleeding in the first 12–24 hours is not uncommon. Try rinsing
-          with saline or warm water.
-        </p>
+          <p>It's normal to experience some bleeding over the first 12 to 24 hours.</p>
+          <p>Try using warm water or saline to rinse.</p>
         
         <br/>
-        
-        <h4>Pain</h4>
-        <p>
-          Pain and soreness are expected with any piercing for a few days or
-          weeks. Avoid touching or moving your piercing.
-        </p>
-        
+
+        <h4>Swelling</h4>
+          <p>Within the first five to seven days, swelling is normal, but it may progressively go down within the first month.</p>
+
         <br/>
-        
+
+        <h4>Getting bruised</h4>
+          <p>Bruising is possible, particularly in close proximity to soft tissue.</p>
+          <p>This is typical.</p>
+
+        <br/>
+
         <h4>Discharge</h4>
-        <p>
-          Clear discharge and "crusties" are part of healing. Do not pick them
-          off — clean gently.
-        </p>
+          <p>Clear discharge and "crusties" are part of healing.</p>
+          <p>Do not pick them off — clean gently.</p>
         
         <br/>
-        
-        <h4>Bruising</h4>
-        <p>
-          Bruising can happen, especially near soft tissue. This is normal.
-        </p>
       </AccordionItem>
 
-      <AccordionItem title="Things to avoid during healing">
-      
-          <p>-Touching or twisting the piercing</p>
-          <p>-Using soaps, alcohol, peroxide, lotions, etc.</p>
-          <p>-Removing jewelry before healing</p>
-          <p>-Sleeping on fresh piercings</p>
-          <p>-Submerging in water (pools, baths, etc.)</p>
-          <p>-Taking advice from non-professionals</p>
-          <p>-Allowing pets or partners near new piercings</p>
-       
+      <AccordionItem title="Things to stay away from while recovering">
+        <p>-Rubbing, touching the piercing or twisting it.</p>
+        <p>-Using lotions, peroxide, alcohol, soaps, etc.</p>
+        <p>-Taking off jewelry before to recovery.</p>
+        <p>-Sleeping on fresh piercings.</p>
+        <p>-Submerging, diving in water (pools, baths, etc.)</p>
+        <p>-Taking advice from non-professionals.</p>
+        <p>-Letting partners or pets get close to your freshly pierced area.</p>
       </AccordionItem>
 
       <AccordionItem title="Downsizing and Jewelry">
-
-        <p>Starter jewelry is longer to allow swelling.</p>
-        <p>Downsizing in time is important to reduce irritation and prevent migration.</p>
-        
-      </AccordionItem>
-
-      <AccordionItem title="Non-Oral Piercings Care"> 
-
-        <p>Clean with sterile saline 2–3 times a day.</p>
-        <p>Do not scrub.</p>
-        <p> Do not try to "unstick" jewelry from tissue.</p>
-
+        <p>In order to account for the swelling that may occur during the early phases of healing,</p>
+        <p>your initial starter jewelry will nearly always be longer.</p>
+        <p>Timely downsizing is essential to minimize annoyance and stop migration.</p>
       </AccordionItem>
 
       <AccordionItem title="Oral Piercings Care">
+        <p>Rinse with alcohol-free mouthwash or saline. </p> 
+        <p>Brush gently around the piercing. </p>
+        <p>Avoid spicy food, smoking, alcohol, and clicking jewelry on teeth. </p>
+      </AccordionItem>
 
-          <p>Rinse with alcohol-free mouthwash or saline. </p> 
-          <p>Brush gently around the piercing. </p>
-          <p>Avoid spicy food, smoking, alcohol, and clicking jewelry on teeth. </p>
-
+      <AccordionItem title="Non-Oral Piercings Care"> 
+        <p>Clean with sterile saline 2–3 times a day.</p>
+        <p>Do not scrub.</p>
+        <p> Do not try to "unstick" jewelry from tissue.</p>
       </AccordionItem>
 
       <AccordionItem title="Microdermals & Surface Piercings">
-
         <p>These are semipermanent and prone to rejection.</p>
-        <p>  Clean gently with saline. </p>
+        <p>Clean gently with saline. </p>
         <p>Avoid touching, makeup, and snagging.</p>
-
       </AccordionItem>
 
       <AccordionItem title="Tooth Gem Aftercare">
-        
         <p>Avoid eating and drinking (except water) for 1 hour. </p>
         <p>Don’t brush the gem area for 24 hours. </p> 
         <p>Smoking, alcohol, and mouthwash can weaken the adhesive. </p>
-
       </AccordionItem>
     </div>
   );

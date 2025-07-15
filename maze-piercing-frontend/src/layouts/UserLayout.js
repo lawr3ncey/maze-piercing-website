@@ -12,7 +12,7 @@ function UserLayout() {
       {/* HERO SECTION */}
       <section className="hero">
         <div className="hero-content">
-          <h1 className="logo">{'<Blood and Ťhorn of mazƎ>'}</h1>
+          <Link to="/" className="logo">{'<Blood and Ťhorn of mazƎ>'}</Link>
           <p className="tagline">Stylish. Safe. Professional.</p>
         </div>
 
