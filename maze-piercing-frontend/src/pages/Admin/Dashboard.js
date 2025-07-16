@@ -1,25 +1,36 @@
-// src/pages/Admin/AdminDashboard.js
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import {
-  Typography,
-  Grid,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Box
-} from '@mui/material';
+import dayjs from 'dayjs'; // Make sure to install this
 
-function AdminDashboard() {
+import React, { useEffect, useState } from 'react';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { Typography, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Box } from '@mui/material';
+
+
+function Dashboard() {
   const [bookings, setBookings] = useState([]);
+  const [monthlyBookings, setMonthlyBookings] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:5000/appointments')
-      .then((response) => setBookings(response.data))
+      .then((response) => {
+        setBookings(response.data);
+
+        // Step 1: Group bookings by month
+        const monthMap = {};
+
+        response.data.forEach((booking) => {
+          const month = dayjs(booking.preferredDate).format('MMM'); // e.g. 'Jun'
+          monthMap[month] = (monthMap[month] || 0) + 1;
+        });
+
+        // Step 2: Convert to chart format
+        const formatted = Object.entries(monthMap).map(([month, count]) => ({
+          month,
+          bookings: count
+        }));
+
+        setMonthlyBookings(formatted);
+      })
       .catch((error) => console.error('Error fetching bookings:', error));
   }, []);
 
@@ -61,10 +72,32 @@ function AdminDashboard() {
         </Grid>
       </Grid>
 
-      {/* Booking Table */}
-      <Typography variant="h6" gutterBottom>
-        Recent Bookings
-      </Typography>
+      <Box>
+        <Typography variant="h4" gutterBottom>Admin Dashboard</Typography>
+
+        {/* Grid of Stat Cards */}
+        <Grid container spacing={2} mb={4}>...</Grid>
+
+        {/* Chart Section */}
+        <Typography variant="h6" gutterBottom mt={4}>
+          Monthly Bookings Overview
+        </Typography>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={monthlyBookings}>
+            <XAxis dataKey="month" />
+            <YAxis allowDecimals={false} />
+            <Tooltip />
+            <Bar dataKey="bookings" fill="#1976d2" />
+          </BarChart>
+        </ResponsiveContainer>
+
+        {/* Table */}
+        <Typography variant="h6" gutterBottom>Recent Bookings</Typography>
+        <TableContainer component={Paper}>...</TableContainer>
+      </Box>
+
+      <br/>
+      
       <TableContainer component={Paper}>
         <Table>
           <TableHead sx={{ backgroundColor: '#f5f5f5' }}>
@@ -93,4 +126,4 @@ function AdminDashboard() {
   );
 }
 
-export default AdminDashboard;
+export default Dashboard;
