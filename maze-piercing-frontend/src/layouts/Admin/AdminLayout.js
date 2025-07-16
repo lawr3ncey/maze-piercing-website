@@ -1,22 +1,68 @@
-import { Link, Outlet } from 'react-router-dom';
-import '../../styles/Admin/AdminLayout.css'; // we'll style later
+// src/layouts/AdminLayout.js
+import { Outlet, Link } from 'react-router-dom';
+import { Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import EventNoteIcon from '@mui/icons-material/EventNote';
+
+const drawerWidth = 240;
 
 function AdminLayout() {
   return (
-    <div className="admin-container">
-      <aside className="sidebar">
-        <h2>Admin Panel</h2>
-        <nav>
-          <ul>
-            <li><Link to="/admin">Bookings</Link></li>
-            {/* You can add more links here later */}
-          </ul>
-        </nav>
-      </aside>
-      <main className="content">
+    <Box sx={{ display: 'flex' }}>
+      {/* Sidebar Drawer */}
+      <Drawer
+        variant="permanent"
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          [`& .MuiDrawer-paper`]: {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+            backgroundColor: '#1e1e2f',
+            color: 'white',
+          },
+        }}
+      >
+        <Toolbar />
+        <Box sx={{ overflow: 'auto' }}>
+          <Typography variant="h6" align="center" sx={{ py: 2 }}>
+            Admin Panel
+          </Typography>
+          <List>
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/admin">
+                <ListItemIcon sx={{ color: 'white' }}>
+                  <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/admin/bookings">
+                <ListItemIcon sx={{ color: 'white' }}>
+                  <EventNoteIcon />
+                </ListItemIcon>
+                <ListItemText primary="Bookings" />
+              </ListItemButton>
+            </ListItem>
+          </List>
+        </Box>
+      </Drawer>
+
+      {/* Main Content */}
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          backgroundColor: '#f9f9f9',
+          minHeight: '100vh',
+        }}
+      >
+        <Toolbar />
         <Outlet />
-      </main>
-    </div>
+      </Box>
+    </Box>
   );
 }
 

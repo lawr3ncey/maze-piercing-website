@@ -1,17 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AdminDashboard from './Admin/AdminDashboard'; // ✅ Assuming AdminDashboard is also in /pages
-import AdminLayout from '../layouts/Admin/AdminLayout'; // ⬅️ Go up one level
-import BookingForm from '../components/User/BookingForm'; // ⬅️ Go up one 
+import AdminDashboard from './pages/Admin/Dashboard'; // ✅ Assuming AdminDashboard is also in /pages
+import AdminLayout from './layouts/Admin/AdminLayout'; // ⬅️ Go up one level
+import BookingForm from './components/User/BookingForm'; // ⬅️ Go up one 
 
-import UserLayout from '../layouts/User/UserLayout';
+import UserLayout from './layouts/User/UserLayout';
 
 
-import Porfolio from './User/Portfolio';
-import Home from './User/Home';
-import Blogs from './User/Blogs';
-import Aftercare from './User/Aftercare';
-import Connect from './User/Connect';
-import Shop from './User/Shop';
+import Porfolio from './pages/User/Portfolio';
+import Home from './pages/User/Home';
+import Blogs from './pages/User/Blogs';
+import Aftercare from './pages/User/Aftercare';
+import Connect from './pages/User/Connect';
+import Shop from './pages/User/Shop';
 
 
 
