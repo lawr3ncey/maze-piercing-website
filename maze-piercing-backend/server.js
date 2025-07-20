@@ -60,26 +60,31 @@ app.get('/appointments', async (req, res) => {
 
 // Admin Login Route
 app.post('/admin/login', async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body; // ✅ Extract from request
 
   try {
     const admin = await Admin.findOne({ email });
-    if (!admin) return res.status(401).json({ message: 'Invalid credentials' });
+    if (!admin) {
+      return res.status(401).json({ message: 'Invalid email' });
+    }
 
     const isMatch = await admin.comparePassword(password);
-    if (!isMatch) return res.status(401).json({ message: 'Invalid credentials' });
+    console.log('Password match:', isMatch);
 
-    // Sign a simple JWT token (optional, for secure sessions)
-    const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET || 'secretkey', {
-      expiresIn: '1d',
-    });
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Invalid password' });
+    }
 
-    res.json({ message: 'Login successful', token });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server error' });
+    // Optional: Send success response
+    res.status(200).json({ message: 'Login successful' });
+
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+
 
 
 // ✅ Mount admin login route
