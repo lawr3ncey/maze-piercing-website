@@ -1,10 +1,77 @@
+/* Logo styling */
+.logo-wrapper {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.logo {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 2.2rem;
+  color: #d8b4fe;
+  text-shadow: 0 0 5px #d8b4fe70;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.welcome-wrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.admin-welcome {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e1dee5;
+  margin: 0px 0;
+  text-shadow: 5px 4px 4px #d8b4fe55;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.admin-tagline {
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: #453b47;
+  margin-top: 4px;
+}
+
+/* Main background */
 .login-background {
   background-color: #222;
   height: 100vh;
+  display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
+/* Flex row: logo left, content right */
+.login-main-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+/* Wraps logo + login box */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 40px 20px;
+}
+
+/* Login box */
 .login-container {
   background-color: #333;
   padding: 40px;
@@ -13,22 +80,16 @@
   width: 360px;
   color: #fff;
   text-align: center;
-}
-
-.login-logo {
-  width: 80px;
-  margin-bottom: 20px;
-}
-
-.login-wrapper{
- justify-items: center;
+  margin-bottom: 2em;
 }
 
 .login-container h2 {
   margin-bottom: 20px;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.4rem;
 }
 
+/* Input fields */
 .login-container form input {
   width: 100%;
   padding: 12px;
@@ -44,6 +105,7 @@
   color: #777;
 }
 
+/* Button */
 .login-container form button {
   width: 100%;
   padding: 12px;
@@ -65,4 +127,11 @@
 .error {
   color: #ff6b6b;
   margin-bottom: 10px;
+}
+
+.login-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* spacing between welcome and login */
 }

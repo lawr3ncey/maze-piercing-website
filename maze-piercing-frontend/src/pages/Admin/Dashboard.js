@@ -11,19 +11,17 @@ function Dashboard() {
   const [monthlyBookings, setMonthlyBookings] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/appointments')
+    axios.get('http://localhost:5000/api/admin/bookings')
       .then((response) => {
         setBookings(response.data);
 
-        // Step 1: Group bookings by month
+        // Group bookings by month
         const monthMap = {};
-
         response.data.forEach((booking) => {
-          const month = dayjs(booking.preferredDate).format('MMM'); // e.g. 'Jun'
+          const month = dayjs(booking.preferredDate).format('MMM');
           monthMap[month] = (monthMap[month] || 0) + 1;
         });
 
-        // Step 2: Convert to chart format
         const formatted = Object.entries(monthMap).map(([month, count]) => ({
           month,
           bookings: count

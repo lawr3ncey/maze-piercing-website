@@ -1,30 +1,15 @@
-import { Outlet, Link } from 'react-router-dom';
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  Box,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Avatar,
-  Menu,
-  MenuItem,
-} from '@mui/material';
+import { useState } from 'react';
+import { Outlet, Link, useNavigate } from 'react-router-dom'; // ⬅️ Updated here
+import { AppBar, Toolbar, Typography, IconButton, Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Avatar, Menu, MenuItem, Button } from '@mui/material';
 
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import EventNoteIcon from '@mui/icons-material/EventNote';
-
-import { useState } from 'react';
 
 const drawerWidth = 240;
 
 function AdminLayout() {
   const [anchorEl, setAnchorEl] = useState(null);
+  const navigate = useNavigate(); // ⬅️ Added for navigation
 
   const handleAvatarClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -32,6 +17,12 @@ function AdminLayout() {
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('adminToken'); // ⬅️ Clear token
+    setAnchorEl(null); // Close menu
+    navigate('/admin/login'); // ⬅️ Redirect to login
   };
 
   return (
@@ -103,7 +94,9 @@ function AdminLayout() {
               </IconButton>
               <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
                 <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-                <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+                <MenuItem onClick={handleLogout} sx={{ color: 'red' }}>
+                  Logout
+                </MenuItem>
               </Menu>
             </Box>
           </Toolbar>
@@ -120,3 +113,4 @@ function AdminLayout() {
 }
 
 export default AdminLayout;
+

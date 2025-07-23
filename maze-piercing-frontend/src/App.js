@@ -3,6 +3,7 @@ import Dashboard from './pages/Admin/Dashboard';
 import Bookings from './pages/Admin/Bookings';
 import AdminLayout from './layouts/Admin/AdminLayout';
 import AdminLogin from './pages/Admin/AdminLogin';
+import RequireAuth from './components/Admin/RequireAuth'; // ✅ Add this
 
 import BookingForm from './components/User/BookingForm';
 import UserLayout from './layouts/User/UserLayout';
@@ -17,8 +18,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Admin Panel */}
-        <Route path="/admin" element={<AdminLayout />}>
+        {/* ✅ Protected Admin Panel */}
+        <Route path="/admin" element={
+          <RequireAuth>
+            <AdminLayout />
+          </RequireAuth>
+        }>
           <Route index element={<Dashboard />} />
           <Route path="bookings" element={<Bookings />} />
         </Route>

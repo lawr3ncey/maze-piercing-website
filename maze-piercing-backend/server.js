@@ -1,32 +1,29 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const Admin = require('./models/Admin');
-require('dotenv').config(); // ✅ Load env vars
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-const app = express();  
+import adminAuthRoutes from './routes/adminAuth.js';
+import bookingsRoutes from './routes/bookings.js';
+import Booking from './models/Booking.js';
+import Admin from './models/Admin.js';
+
+
+dotenv.config(); // ✅ Load environment variables
+
+const app = express();
 const PORT = 5000;
 
 // ✅ Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
+}).then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.error('MongoDB connection error:', err));
 
 // ✅ Middleware
 app.use(cors());
 app.use(express.json());
-
-// ✅ Models
-const Booking = mongoose.model('Booking', new mongoose.Schema({
-  name: String,
-  email: String,
-  piercingType: String,
-  preferredDate: String,
-  message: String,
-}));
 
 // ✅ Routes
 app.get('/', (req, res) => {
@@ -36,7 +33,7 @@ app.get('/', (req, res) => {
 // POST /appointments (create booking)
 app.post('/appointments', async (req, res) => {
   try {
-    const booking = new Booking(req.body);
+    const booking = new Booking(req.body); // ✅ Use capitalized model
     await booking.save();
     console.log('Saved booking:', booking);
     res.status(201).json({ message: 'Booking saved to MongoDB!', booking });
@@ -46,21 +43,9 @@ app.post('/appointments', async (req, res) => {
   }
 });
 
-// GET /appointments (admin view)
-app.get('/appointments', async (req, res) => {
-  try {
-    const bookings = await Booking.find();
-    res.status(200).json(bookings);
-  } catch (error) {
-    console.error('Error fetching bookings:', error);
-    res.status(500).json({ message: 'Failed to fetch bookings' });
-  }
-});
-
-
 // Admin Login Route
 app.post('/admin/login', async (req, res) => {
-  const { email, password } = req.body; // ✅ Extract from request
+  const { email, password } = req.body;
 
   try {
     const admin = await Admin.findOne({ email });
@@ -69,13 +54,10 @@ app.post('/admin/login', async (req, res) => {
     }
 
     const isMatch = await admin.comparePassword(password);
-    console.log('Password match:', isMatch);
-
     if (!isMatch) {
       return res.status(401).json({ message: 'Invalid password' });
     }
 
-    // Optional: Send success response
     res.status(200).json({ message: 'Login successful' });
 
   } catch (error) {
@@ -84,11 +66,10 @@ app.post('/admin/login', async (req, res) => {
   }
 });
 
+// ✅ Mount routes
+app.use('/api/admin', adminAuthRoutes);
+app.use('/api/admin', bookingsRoutes);
 
-
-
-// ✅ Mount admin login route
-app.use('/api/admin', require('./routes/adminAuth'));
 
 // ✅ Start server
 app.listen(PORT, () => {

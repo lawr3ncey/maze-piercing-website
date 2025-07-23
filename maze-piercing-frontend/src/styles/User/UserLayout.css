@@ -80,13 +80,17 @@
   margin: 0;
   text-decoration: none; /* removes underline */
   display: inline-block; /* optional, keeps spacing clean */
+  animation: fadeIn 1s ease-in;
 }
 
 @font-face {
   font-family: 'ThunderInferno';
   src: url('/./public/fonts/ThunderInferno.otf') format('opentype');
-  
+}
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .tagline {

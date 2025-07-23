@@ -18,7 +18,7 @@ const AdminLogin = () => {
       });
       localStorage.setItem('adminToken', res.data.token);
       alert('Login successful!');
-      window.location.href = '/admin/dashboard';
+      window.location.href = '/admin';
     } catch (err) {
       console.error(err);
       setError('Invalid credentials');
@@ -27,31 +27,42 @@ const AdminLogin = () => {
 
   return (
     <div className="login-background">
-      <div className="logo-wrapper">
-        <Logo />
-      </div>
-      
-      <div className="login-wrapper">
-        <div className="login-container">
-          <h2>Admin Login</h2>
-          {error && <p className="error">{error}</p>}
-          <form onSubmit={handleLogin}>
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button type="submit">Login</button>
-          </form>
+      <div className="login-main-wrapper">
+        {/* Left: Logo */}
+        <div className="logo-wrapper">
+          <Logo />
+        </div>
+
+        {/* Right: Welcome + Login */}
+        <div className="login-content-wrapper">
+          <div className="welcome-wrapper">
+            <h1 className="admin-welcome">Welcome to the shadows, Admin</h1>
+            <p className="admin-tagline">Where Style Meets Security.</p>
+          </div>
+
+          <div className="login-wrapper">
+            <div className="login-container">
+              <h2>Admin Login</h2>
+              {error && <p className="error">{error}</p>}
+              <form onSubmit={handleLogin}>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <button type="submit">Login</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>

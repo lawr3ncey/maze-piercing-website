@@ -1,9 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const jwt = require('jsonwebtoken');
-const Admin = require('../models/Admin');
-const bcrypt = require('bcrypt');
+import express from 'express';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import Admin from '../models/Admin.js';
 
+const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'default_secret';
 
 router.post('/login', async (req, res) => {
@@ -24,4 +24,4 @@ router.post('/login', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

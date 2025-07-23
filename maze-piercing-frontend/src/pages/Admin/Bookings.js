@@ -1,5 +1,5 @@
 // src/pages/Admin/Bookings.js
-
+import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import FullCalendar from '@fullcalendar/react';
@@ -20,11 +20,24 @@ import {
 
 function Bookings() {
   const [bookings, setBookings] = useState([]);
+  const navigate = useNavigate();
+
+  
 
   // Fetch data every 10 seconds
   useEffect(() => {
+    const token = localStorage.getItem('adminToken');
+      if (!token) {
+        navigate('/admin/login');
+        return;
+      }
+
     const fetchBookings = () => {
-      axios.get('http://localhost:5000/appointments')
+      axios.get('http://localhost:5000/api/admin/bookings', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
         .then(res => setBookings(res.data))
         .catch(err => console.error('Error fetching bookings:', err));
     };
@@ -33,7 +46,8 @@ function Bookings() {
     const interval = setInterval(fetchBookings, 10000); // Poll every 10s
 
     return () => clearInterval(interval); // Cleanup
-  }, []);
+  }, [navigate]);
+
 
   // Convert bookings for calendar
   const calendarEvents = bookings.map(b => ({
