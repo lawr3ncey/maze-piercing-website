@@ -56,3 +56,39 @@
   margin-top: 2rem;
   color: #555;
 }
+
+.connect-page {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Connect.css */
+.map-container {
+  margin: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.link-container {
+  display: flex;
+  justify-content: center;  /* Horizontally centers the link */
+  align-items: center;      /* Vertically centers the link */
+  margin: 20px;
+}
+
+.directions-button {
+  display: inline-block;
+  background-color: #d8b4fe;
+  padding: 0.75rem 1.5rem;
+  color: #222;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 0.3s ease;
+}
+
+.directions-button:hover {
+  background-color: #c084fc;
+  color: #fff;
+}
