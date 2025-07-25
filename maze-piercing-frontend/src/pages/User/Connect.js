@@ -29,9 +29,7 @@ function Connect() {
         loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
-    </div>
     
-    <div className="link-container">
       <a
         href="https://maps.app.goo.gl/qEUnh1y6MDj9NqTD8"
         target="_blank"
