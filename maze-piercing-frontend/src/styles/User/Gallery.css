@@ -115,3 +115,43 @@
 }
 
 
+
+
+/* Override Swiper default nav buttons */
+.swiper-button-prev,
+.swiper-button-next {
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background 0.3s ease;
+  z-index: 10;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Optional: Hide buttons by default unless hovered */
+.gallery-swiper:hover .swiper-button-prev,
+.gallery-swiper:hover .swiper-button-next {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  opacity: 0;
+  pointer-events: none;
+}
