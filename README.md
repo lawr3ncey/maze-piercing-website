@@ -34,3 +34,9 @@ Frontend is live on Netlify: [Click here to view](https://bloodandthornofmaze.ne
 ---
 
 ## 📂 Folder Structure
+maze-piercing-website/
+│
+├── maze-piercing-frontend/ # React frontend
+├── maze-piercing-backend/ # Node.js backend
+└── README.md # Project overview
+
