@@ -29,7 +29,7 @@ Built with **React**, **Node.js/Express**, and **MongoDB**, with an **Admin Dash
 ---
 
 ## 🚀 Deployment
-Frontend is live on Netlify: [Click here to view](https://bloodandthornofmaze.netlify.app/)
+Frontend is live on Netlify: [Click here to view](https://blood-and-thorn-of-maze.netlify.app/)
 
 ---
 
